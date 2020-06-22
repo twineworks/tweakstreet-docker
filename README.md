@@ -17,7 +17,7 @@ $  docker run --init --rm \
 2020-06-19 18:28:04 Z | INFO  | main          | loading flow /app/main.dfl
 2020-06-19 18:28:04 Z | INFO  | main.dfl      | initializing flow
 ...
-2020-06-19 18:28:06 Z | INFO  | write records | FINISHED total: {"in": 11323, "out": 11323, "error": 0}
+2020-06-19 18:28:06 Z | INFO  | write records | FINISHED total: {"in": 123, "out": 123, "error": 0}
 2020-06-19 18:28:06 Z | INFO  | main.dfl      | flow finished successfully
 ```
 
@@ -42,7 +42,7 @@ $ docker logs long_job
 2020-06-19 18:28:04 Z | INFO  | main          | loading flow /app/main.dfl
 2020-06-19 18:28:04 Z | INFO  | main.dfl      | initializing flow
 ...
-2020-06-19 18:28:06 Z | INFO  | write records | FINISHED total: {"in": 11323, "out": 11323, "error": 0}
+2020-06-19 18:28:06 Z | INFO  | write records | FINISHED total: {"in": 123, "out": 123, "error": 0}
 2020-06-19 18:28:06 Z | INFO  | main.dfl      | flow finished successfully
 ```
 
