@@ -4,10 +4,10 @@ LABEL maintainer="Tweakstreet Docker Maintainers <hi@tweakstreet.io>"
 
 ENV TS_GID        101
 ENV TS_UID        101
-ENV TS_VERSION    1.0.2
+ENV TS_VERSION    1.1.0
 ENV TS_HOME       /home/tweakstreet
 ENV TS_LOCATION   /opt/tweakstreet
-ENV TS_SHA256     5de198faa6c4ca8918a82c10d38d27bf49799b7717fbd6177115fd7f8d213879
+ENV TS_SHA256     d7afc7ff2cd0fe5339668a3cc99594099a5a185e8bedbefb38e6278a13eb1830
 
 ENV TERM          xterm-256color
 
@@ -39,4 +39,3 @@ COPY docker-entrypoint.sh "${TS_LOCATION}/"
 ENTRYPOINT ["/opt/tweakstreet/docker-entrypoint.sh"]
 
 CMD ["engine.sh", "--help"]
-
