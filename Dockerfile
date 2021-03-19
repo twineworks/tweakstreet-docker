@@ -4,10 +4,10 @@ LABEL maintainer="Tweakstreet Docker Maintainers <hi@tweakstreet.io>"
 
 ENV TS_GID        101
 ENV TS_UID        101
-ENV TS_VERSION    1.14.4
+ENV TS_VERSION    1.15.0
 ENV TS_HOME       /home/tweakstreet
 ENV TS_LOCATION   /opt/tweakstreet
-ENV TS_SHA256     3d2c2ea50753b40e34e6db4412dcaa26fdb3df2311446d2604e4947b0afa5624
+ENV TS_SHA256     b404b74d328346e276a9dfaa6af5ede4593331b460495f0573f793182bca771b
 
 ENV TERM          xterm-256color
 
