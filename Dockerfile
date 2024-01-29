@@ -1,13 +1,13 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 
 LABEL maintainer="Tweakstreet Docker Maintainers <hi@tweakstreet.io>"
 
-ENV TS_GID        101
-ENV TS_UID        101
-ENV TS_VERSION    1.22.2
+ENV TS_GID        1001
+ENV TS_UID        1001
+ENV TS_VERSION    1.22.4
 ENV TS_HOME       /home/tweakstreet
 ENV TS_LOCATION   /opt/tweakstreet
-ENV TS_SHA256     bd15f3976af73971420d6921d0954189dee4bcbe9277a4d0af72443b0fa3d03b
+ENV TS_SHA256     1e4532e196d852312bbae620af6e01ed3b0ccf8b64f97250a27a1475c6d21005
 
 ENV TERM          xterm-256color
 
@@ -27,10 +27,18 @@ USER tweakstreet
 
 SHELL ["/bin/bash", "-c"]
 
-RUN curl "https://tweakstreet.io/updates/Tweakstreet-${TS_VERSION}-portable.tar.gz" --output "${TS_LOCATION}/portable.tar.gz" \
+RUN curl --output "${TS_LOCATION}/portable.tar.gz" "https://updates.tweakstreet.io/updates/Tweakstreet-${TS_VERSION}-portable.tar.gz" \
+    && echo "* Downloaded tweakstreet archive" \
+    && ls -la "${TS_LOCATION}" \
     && echo "${TS_SHA256} *portable.tar.gz" > "${TS_LOCATION}/SHA256SUMS" \
+    && echo "* Checksum: " \
+    && cat "${TS_LOCATION}/SHA256SUMS" \
+    && echo "* Checking Checksum" \
     && cd "${TS_LOCATION}" && sha256sum -c SHA256SUMS 2>&1 | grep OK \
+    && echo "* Extracting archive" \
+    && cd "${TS_LOCATION}" \
     && tar --strip-components=1 -xzf portable.tar.gz Tweakstreet-${TS_VERSION}-portable/bin \
+    && echo "* Removing archive" \
     && rm portable.tar.gz
 
 ENV PATH "${TS_LOCATION}/bin:$PATH"
